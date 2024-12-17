@@ -1,0 +1,76 @@
+-- next
+BEGIN
+   IF :SYSTEM.RECORD_STATUS = 'NEW' THEN
+      MESSAGE('Please save the current record first.', 'I');
+      RAISE FORM_TRIGGER_FAILURE;
+   ELSE
+      GO_BLOCK('DONOR');
+      NEXT_RECORD;
+   END IF;
+END;
+----------------------
+-- back
+BEGIN
+   IF :SYSTEM.RECORD_STATUS = 'NEW' THEN
+      MESSAGE('Please save the current record first.', 'I');
+      RAISE FORM_TRIGGER_FAILURE;
+   ELSE
+      GO_BLOCK('DONOR');
+      PREVIOUS_RECORD;
+   END IF;
+END;
+
+-- insert
+commit;
+
+
+-- delete
+BEGIN
+   -- Check if a record exists to delete
+   IF :SYSTEM.RECORD_STATUS IN ('QUERY', 'CHANGED') THEN
+      DELETE_RECORD; -- Mark the record for deletion
+      COMMIT; -- Save the deletion to the database
+      MESSAGE('Record deleted successfully.');
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+   ELSE
+      MESSAGE('No record selected to delete.');
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+   END IF;
+EXCEPTION
+   WHEN OTHERS THEN
+      ROLLBACK; -- Undo changes if an error occurs
+      MESSAGE('Error deleting the record: ' || SQLERRM);
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+END;
+
+
+-- clear
+BEGIN
+   -- Clear the current block without saving changes
+   CLEAR_FORM(NO_VALIDATE);
+   MESSAGE('Form cleared successfully.');
+   MESSAGE(' ', NO_ACKNOWLEDGE);
+EXCEPTION
+   WHEN OTHERS THEN
+      MESSAGE('Error clearing the form: ' || SQLERRM);
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+END;
+
+
+-- update
+BEGIN
+   -- Check if the record is modified or newly inserted
+   IF :SYSTEM.RECORD_STATUS IN ('CHANGED', 'INSERT') THEN
+      COMMIT; -- Save the changes to the database
+      MESSAGE('Record updated successfully.');
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+   ELSE
+      MESSAGE('No changes to update.');
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+   END IF;
+EXCEPTION
+   WHEN OTHERS THEN
+      ROLLBACK; -- Undo changes if an error occurs
+      MESSAGE('Error updating the record: ' || SQLERRM);
+      MESSAGE(' ', NO_ACKNOWLEDGE);
+END;
