@@ -4,8 +4,8 @@
 <rw:report id="report">
 <rw:objects id="objects">
 <?xml version="1.0" encoding="WINDOWS-1252" ?>
-<report name="CHILD_REPORT" DTDVersion="9.0.2.0.10">
-  <xmlSettings xmlTag="CHILD_REPORT" xmlPrologType="text">
+<report name="Staff Report" DTDVersion="9.0.2.0.10">
+  <xmlSettings xmlTag="MODULE1" xmlPrologType="text">
   <![CDATA[<?xml version="1.0" encoding="&Encoding"?>]]>
   </xmlSettings>
   <reportHtmlEscapes>
@@ -140,80 +140,58 @@ function pagenum(form)
   <data>
     <dataSource name="Q_1">
       <select>
-      <![CDATA[SELECT * FROM ROAA.CHILD;
-]]>
+      <![CDATA[SELECT * FROM ROAA.STAFF;]]>
       </select>
       <displayInfo x="1.65002" y="1.00000" width="0.69995" height="0.19995"/>
-      <group name="G_CHILD_ID">
-        <displayInfo x="1.15759" y="1.94995" width="1.68494" height="1.69922"
+      <group name="G_STAFF_ID">
+        <displayInfo x="1.23083" y="1.94995" width="1.53845" height="1.33936"
         />
-        <dataItem name="CHILD_ID" oracleDatatype="number" columnOrder="11"
+        <dataItem name="STAFF_ID" oracleDatatype="number" columnOrder="11"
          width="22" defaultWidth="20000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Child Id">
-          <dataDescriptor expression="ROAA.CHILD.CHILD_ID"
-           descriptiveExpression="CHILD_ID" order="1" oracleDatatype="number"
-           width="22" scale="-127"/>
+         columnFlags="33" defaultLabel="Staff Id">
+          <dataDescriptor expression="ROAA.STAFF.STAFF_ID"
+           descriptiveExpression="STAFF_ID" order="1" width="22" scale="-127"
+          />
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
         <dataItem name="NAME" datatype="vchar2" columnOrder="12" width="100"
          defaultWidth="100000" defaultHeight="10000" columnFlags="33"
          defaultLabel="Name">
-          <dataDescriptor expression="ROAA.CHILD.NAME"
+          <dataDescriptor expression="ROAA.STAFF.NAME"
            descriptiveExpression="NAME" order="2" width="100"/>
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
-        <dataItem name="GENDER" datatype="character"
-         oracleDatatype="aFixedChar" columnOrder="13" width="1"
-         defaultWidth="10000" defaultHeight="10000" columnFlags="33"
-         defaultLabel="Gender">
-          <dataDescriptor expression="ROAA.CHILD.GENDER"
-           descriptiveExpression="GENDER" order="3"
-           oracleDatatype="aFixedChar" width="1"/>
+        <dataItem name="POSITION" datatype="vchar2" columnOrder="13"
+         width="50" defaultWidth="100000" defaultHeight="10000"
+         columnFlags="33" defaultLabel="Position">
+          <dataDescriptor expression="ROAA.STAFF.POSITION"
+           descriptiveExpression="POSITION" order="3" width="50"/>
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
-        <dataItem name="ADMISSION_DATE" datatype="date" oracleDatatype="date"
-         columnOrder="14" width="9" defaultWidth="90000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Admission Date">
-          <dataDescriptor expression="ROAA.CHILD.ADMISSION_DATE"
-           descriptiveExpression="ADMISSION_DATE" order="4"
-           oracleDatatype="date" width="9"/>
+        <dataItem name="EMAIL" datatype="vchar2" columnOrder="14" width="100"
+         defaultWidth="100000" defaultHeight="10000" columnFlags="33"
+         defaultLabel="Email">
+          <dataDescriptor expression="ROAA.STAFF.EMAIL"
+           descriptiveExpression="EMAIL" order="4" width="100"/>
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
-        <dataItem name="BIRTH_DATE" datatype="date" oracleDatatype="date"
-         columnOrder="15" width="9" defaultWidth="90000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Birth Date">
-          <dataDescriptor expression="ROAA.CHILD.BIRTH_DATE"
-           descriptiveExpression="BIRTH_DATE" order="5" oracleDatatype="date"
-           width="9"/>
+        <dataItem name="PHONE_NUMBER" datatype="vchar2" columnOrder="15"
+         width="15" defaultWidth="100000" defaultHeight="10000"
+         columnFlags="33" defaultLabel="Phone Number">
+          <dataDescriptor expression="ROAA.STAFF.PHONE_NUMBER"
+           descriptiveExpression="PHONE_NUMBER" order="5" width="15"/>
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
-        <dataItem name="STAFF_ID" oracleDatatype="number" columnOrder="16"
-         width="22" defaultWidth="20000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Staff Id">
-          <dataDescriptor expression="ROAA.CHILD.STAFF_ID"
-           descriptiveExpression="STAFF_ID" order="6" oracleDatatype="number"
-           width="22" scale="-127"/>
-          <dataItemPrivate adtName="" schemaName=""/>
-        </dataItem>
-        <dataItem name="ADOPTER_ID" oracleDatatype="number" columnOrder="17"
-         width="22" defaultWidth="20000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Adopter Id">
-          <dataDescriptor expression="ROAA.CHILD.ADOPTER_ID"
-           descriptiveExpression="ADOPTER_ID" order="7"
-           oracleDatatype="number" width="22" scale="-127"/>
-          <dataItemPrivate adtName="" schemaName=""/>
-        </dataItem>
-        <dataItem name="ROOM_ID" oracleDatatype="number" columnOrder="18"
-         width="22" defaultWidth="20000" defaultHeight="10000"
-         columnFlags="33" defaultLabel="Room Id">
-          <dataDescriptor expression="ROAA.CHILD.ROOM_ID"
-           descriptiveExpression="ROOM_ID" order="8" oracleDatatype="number"
-           width="22" scale="-127"/>
+        <dataItem name="HIRE_DATE" datatype="date" oracleDatatype="date"
+         columnOrder="16" width="9" defaultWidth="90000" defaultHeight="10000"
+         columnFlags="33" defaultLabel="Hire Date">
+          <dataDescriptor expression="ROAA.STAFF.HIRE_DATE"
+           descriptiveExpression="HIRE_DATE" order="6" width="9"/>
           <dataItemPrivate adtName="" schemaName=""/>
         </dataItem>
       </group>
     </dataSource>
-    <summary name="CountCHILD_IDPerReport" source="CHILD_ID" function="count"
+    <summary name="CountSTAFF_IDPerReport" source="STAFF_ID" function="count"
      precision="8" reset="report" compute="report" defaultWidth="100000"
      defaultHeight="10000" columnFlags="552" defaultLabel="Count:">
       <displayInfo x="0.00000" y="0.00000" width="0.00000" height="0.00000"/>
@@ -222,100 +200,86 @@ function pagenum(form)
   <layout>
   <section name="main">
     <body>
-      <frame name="M_G_CHILD_ID_GRPFR">
-        <geometryInfo x="0.00000" y="0.00000" width="7.43750" height="0.75000"
+      <frame name="M_G_STAFF_ID_GRPFR">
+        <geometryInfo x="0.00000" y="0.00000" width="7.43750" height="0.56250"
         />
         <generalLayout verticalElasticity="variable"/>
         <visualSettings fillPattern="transparent"
          fillBackgroundColor="r100g100b100"/>
-        <repeatingFrame name="R_G_CHILD_ID" source="G_CHILD_ID"
+        <repeatingFrame name="R_G_STAFF_ID" source="G_STAFF_ID"
          printDirection="down" minWidowRecords="1" columnMode="no">
-          <geometryInfo x="0.00000" y="0.37500" width="7.43750"
+          <geometryInfo x="0.00000" y="0.18750" width="7.43750"
            height="0.18750"/>
           <generalLayout verticalElasticity="expand"/>
           <visualSettings fillPattern="transparent"
            fillBackgroundColor="TableCell"/>
-          <field name="F_CHILD_ID" source="CHILD_ID" minWidowLines="1"
+          <field name="F_STAFF_ID" source="STAFF_ID" minWidowLines="1"
            spacing="0" alignment="start">
             <font face="helvetica" size="10"/>
-            <geometryInfo x="0.00000" y="0.37500" width="1.56250"
+            <geometryInfo x="0.00000" y="0.18750" width="1.56250"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
           <field name="F_NAME" source="NAME" minWidowLines="1" spacing="0"
            alignment="start">
             <font face="helvetica" size="10"/>
-            <geometryInfo x="1.56250" y="0.37500" width="1.43750"
+            <geometryInfo x="1.56250" y="0.18750" width="1.12500"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
-          <field name="F_GENDER" source="GENDER" minWidowLines="1" spacing="0"
+          <field name="F_POSITION" source="POSITION" minWidowLines="1"
+           spacing="0" alignment="start">
+            <font face="helvetica" size="10"/>
+            <geometryInfo x="2.68750" y="0.18750" width="1.12500"
+             height="0.18750"/>
+            <generalLayout verticalElasticity="expand"/>
+          </field>
+          <field name="F_EMAIL" source="EMAIL" minWidowLines="1" spacing="0"
            alignment="start">
             <font face="helvetica" size="10"/>
-            <geometryInfo x="3.00000" y="0.37500" width="0.50000"
+            <geometryInfo x="3.81250" y="0.18750" width="1.12500"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
-          <field name="F_ADMISSION_DATE" source="ADMISSION_DATE"
-           minWidowLines="1" spacing="0" alignment="start">
-            <font face="helvetica" size="10"/>
-            <geometryInfo x="3.50000" y="0.37500" width="1.31250"
-             height="0.18750"/>
-            <generalLayout verticalElasticity="expand"/>
-          </field>
-          <field name="F_BIRTH_DATE" source="BIRTH_DATE" minWidowLines="1"
+          <field name="F_PHONE_NUMBER" source="PHONE_NUMBER" minWidowLines="1"
            spacing="0" alignment="start">
             <font face="helvetica" size="10"/>
-            <geometryInfo x="4.81250" y="0.37500" width="1.31250"
+            <geometryInfo x="5.00000" y="0.18750" width="1.12500"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
-          <field name="F_STAFF_ID" source="STAFF_ID" minWidowLines="1"
+          <field name="F_HIRE_DATE" source="HIRE_DATE" minWidowLines="1"
            spacing="0" alignment="start">
             <font face="helvetica" size="10"/>
-            <geometryInfo x="6.12500" y="0.37500" width="0.31250"
-             height="0.18750"/>
-            <generalLayout verticalElasticity="expand"/>
-          </field>
-          <field name="F_ADOPTER_ID" source="ADOPTER_ID" minWidowLines="1"
-           spacing="0" alignment="start">
-            <font face="helvetica" size="10"/>
-            <geometryInfo x="6.43750" y="0.37500" width="0.56250"
-             height="0.18750"/>
-            <generalLayout verticalElasticity="expand"/>
-          </field>
-          <field name="F_ROOM_ID" source="ROOM_ID" minWidowLines="1"
-           spacing="0" alignment="start">
-            <font face="helvetica" size="10"/>
-            <geometryInfo x="7.00000" y="0.37500" width="0.43750"
+            <geometryInfo x="6.12500" y="0.18750" width="1.31250"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
         </repeatingFrame>
-        <frame name="M_G_CHILD_ID_FTR">
-          <geometryInfo x="0.00000" y="0.56250" width="7.43750"
+        <frame name="M_G_STAFF_ID_FTR">
+          <geometryInfo x="0.00000" y="0.37500" width="7.37500"
            height="0.18750"/>
           <advancedLayout printObjectOnPage="lastPage"
            basePrintingOn="anchoringObject"/>
           <visualSettings fillPattern="transparent"
            fillBackgroundColor="Totals"/>
-          <field name="F_CountCHILD_IDPerReport"
-           source="CountCHILD_IDPerReport" minWidowLines="1" spacing="0"
+          <field name="F_CountSTAFF_IDPerReport"
+           source="CountSTAFF_IDPerReport" minWidowLines="1" spacing="0"
            alignment="start">
             <font face="helvetica" size="10" bold="yes"/>
-            <geometryInfo x="0.00000" y="0.56250" width="1.56250"
+            <geometryInfo x="0.00000" y="0.37500" width="1.56250"
              height="0.18750"/>
             <generalLayout verticalElasticity="expand"/>
           </field>
         </frame>
-        <frame name="M_G_CHILD_ID_HDR">
+        <frame name="M_G_STAFF_ID_HDR">
           <geometryInfo x="0.00000" y="0.00000" width="7.43750"
-           height="0.37500"/>
+           height="0.18750"/>
           <advancedLayout printObjectOnPage="allPage"
            basePrintingOn="anchoringObject"/>
           <visualSettings fillPattern="transparent"
            fillBackgroundColor="TableHeading"/>
-          <text name="B_CHILD_ID" minWidowLines="1">
+          <text name="B_STAFF_ID" minWidowLines="1">
             <textSettings spacing="0"/>
             <geometryInfo x="0.00000" y="0.00000" width="1.56250"
              height="0.18750"/>
@@ -324,13 +288,13 @@ function pagenum(form)
               <font face="helvetica" size="10" bold="yes"
                textColor="r100g100b100"/>
               <string>
-              <![CDATA[Child Id]]>
+              <![CDATA[Staff Id]]>
               </string>
             </textSegment>
           </text>
           <text name="B_NAME" minWidowLines="1">
             <textSettings spacing="0"/>
-            <geometryInfo x="1.56250" y="0.00000" width="1.43750"
+            <geometryInfo x="1.56250" y="0.00000" width="1.12500"
              height="0.18750"/>
             <visualSettings fillBackgroundColor="r25g50b75"/>
             <textSegment>
@@ -341,105 +305,55 @@ function pagenum(form)
               </string>
             </textSegment>
           </text>
-          <text name="B_GENDER" minWidowLines="1">
+          <text name="B_POSITION" minWidowLines="1">
             <textSettings spacing="0"/>
-            <geometryInfo x="3.00000" y="0.00000" width="0.50000"
+            <geometryInfo x="2.68750" y="0.00000" width="1.12500"
              height="0.18750"/>
             <visualSettings fillBackgroundColor="r25g50b75"/>
             <textSegment>
               <font face="helvetica" size="10" bold="yes"
                textColor="r100g100b100"/>
               <string>
-              <![CDATA[Gender]]>
+              <![CDATA[Position]]>
               </string>
             </textSegment>
           </text>
-          <text name="B_ADMISSION_DATE" minWidowLines="1">
+          <text name="B_EMAIL" minWidowLines="1">
             <textSettings spacing="0"/>
-            <geometryInfo x="3.50000" y="0.00000" width="1.31250"
+            <geometryInfo x="3.81250" y="0.00000" width="1.12500"
+             height="0.18750"/>
+            <visualSettings fillBackgroundColor="r25g50b75"/>
+            <textSegment>
+              <font face="helvetica" size="10" bold="yes"
+               textColor="r100g100b100"/>
+              <string>
+              <![CDATA[Email]]>
+              </string>
+            </textSegment>
+          </text>
+          <text name="B_PHONE_NUMBER" minWidowLines="1">
+            <textSettings spacing="0"/>
+            <geometryInfo x="5.00000" y="0.00000" width="1.12500"
+             height="0.18750"/>
+            <visualSettings fillBackgroundColor="r25g50b75"/>
+            <textSegment>
+              <font face="helvetica" size="10" bold="yes"
+               textColor="r100g100b100"/>
+              <string>
+              <![CDATA[Phone Number]]>
+              </string>
+            </textSegment>
+          </text>
+          <text name="B_HIRE_DATE" minWidowLines="1">
+            <textSettings spacing="0"/>
+            <geometryInfo x="6.12500" y="0.00000" width="1.31250"
              height="0.18750"/>
             <visualSettings fillBackgroundColor="TableHeading"/>
             <textSegment>
               <font face="helvetica" size="10" bold="yes"
                textColor="r100g100b100"/>
               <string>
-              <![CDATA[Admission Date]]>
-              </string>
-            </textSegment>
-          </text>
-          <text name="B_BIRTH_DATE" minWidowLines="1">
-            <textSettings spacing="0"/>
-            <geometryInfo x="4.81250" y="0.00000" width="1.31250"
-             height="0.18750"/>
-            <visualSettings fillBackgroundColor="TableHeading"/>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Birth Date]]>
-              </string>
-            </textSegment>
-          </text>
-          <text name="B_STAFF_ID" minWidowLines="1">
-            <textSettings spacing="0"/>
-            <geometryInfo x="6.12500" y="0.00000" width="0.31250"
-             height="0.37500"/>
-            <visualSettings fillBackgroundColor="TableHeading"/>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Staff
-]]>
-              </string>
-            </textSegment>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Id]]>
-              </string>
-            </textSegment>
-          </text>
-          <text name="B_ADOPTER_ID" minWidowLines="1">
-            <textSettings spacing="0"/>
-            <geometryInfo x="6.43750" y="0.00000" width="0.56250"
-             height="0.37500"/>
-            <visualSettings fillBackgroundColor="TableHeading"/>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Adopter
-]]>
-              </string>
-            </textSegment>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Id]]>
-              </string>
-            </textSegment>
-          </text>
-          <text name="B_ROOM_ID" minWidowLines="1">
-            <textSettings spacing="0"/>
-            <geometryInfo x="7.00000" y="0.00000" width="0.43750"
-             height="0.37500"/>
-            <visualSettings fillBackgroundColor="TableHeading"/>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Room
-]]>
-              </string>
-            </textSegment>
-            <textSegment>
-              <font face="helvetica" size="10" bold="yes"
-               textColor="r100g100b100"/>
-              <string>
-              <![CDATA[Id]]>
+              <![CDATA[Hire Date]]>
               </string>
             </textSegment>
           </text>
@@ -573,7 +487,7 @@ DCDCDCDC DCDCDCDC DCDCDCDC DCDCDFDF
         <textSegment>
           <font face="Courier New" size="10"/>
           <string>
-          <![CDATA[Child Report]]>
+          <![CDATA[Staff Report]]>
           </string>
         </textSegment>
       </text>
@@ -587,7 +501,7 @@ DCDCDCDC DCDCDCDC DCDCDCDC DCDCDFDF
     <color index="193" displayName="Totals" value="#e5b29a"/>
   </colorPalette>
   <reportPrivate defaultReportType="tabular" versionFlags2="0"
-   templateName="rwpeach" sectionTitle="Child Report"/>
+   templateName="rwpeach" sectionTitle="Staff Report"/>
   <reportWebSettings>
   <![CDATA[#NULL#]]>
   </reportWebSettings>
@@ -601,7 +515,7 @@ DCDCDCDC DCDCDCDC DCDCDCDC DCDCDFDF
 
 <HEAD>
   <TITLE> Your Title </TITLE>
-  <rw:style id="116">
+  <rw:style id="20">
 <link rel="StyleSheet" type="text/css" href="css/rwbeige.css">
 </rw:style>
 
@@ -668,45 +582,36 @@ DCDCDCDC DCDCDCDC DCDCDCDC DCDCDFDF
     <TD width="71%">
       <DIV align="center">
       <!-- Data Area Generated by Reports Developer -->
-<rw:dataArea id="MGCHILDIDGRPFR78">
+<rw:dataArea id="MGSTAFFIDGRPFR141">
 <table class="OraTable">
-<caption> Child Report </caption>
+<caption> Staff Report </caption>
  <!-- Header -->
  <thead>
   <tr>
-   <th <rw:id id="HBCHILDID78" asArray="no"/> class="OraColumnHeader"> Child Id </th>
-   <th <rw:id id="HBNAME78" asArray="no"/> class="OraColumnHeader"> Name </th>
-   <th <rw:id id="HBGENDER78" asArray="no"/> class="OraColumnHeader"> Gender </th>
-   <th <rw:id id="HBADMISSIONDATE78" asArray="no"/> class="OraColumnHeader"> Admission Date </th>
-   <th <rw:id id="HBBIRTHDATE78" asArray="no"/> class="OraColumnHeader"> Birth Date </th>
-   <th <rw:id id="HBSTAFFID78" asArray="no"/> class="OraColumnHeader"> Staff
-Id </th>
-   <th <rw:id id="HBADOPTERID78" asArray="no"/> class="OraColumnHeader"> Adopter
-Id </th>
-   <th <rw:id id="HBROOMID78" asArray="no"/> class="OraColumnHeader"> Room
-Id </th>
+   <th <rw:id id="HBSTAFFID141" asArray="no"/> class="OraColumnHeader"> Staff Id </th>
+   <th <rw:id id="HBNAME141" asArray="no"/> class="OraColumnHeader"> Name </th>
+   <th <rw:id id="HBPOSITION141" asArray="no"/> class="OraColumnHeader"> Position </th>
+   <th <rw:id id="HBEMAIL141" asArray="no"/> class="OraColumnHeader"> Email </th>
+   <th <rw:id id="HBPHONENUMBER141" asArray="no"/> class="OraColumnHeader"> Phone Number </th>
+   <th <rw:id id="HBHIREDATE141" asArray="no"/> class="OraColumnHeader"> Hire Date </th>
   </tr>
  </thead>
  <!-- Body -->
  <tbody>
-  <rw:foreach id="RGCHILDID781" src="G_CHILD_ID">
+  <rw:foreach id="RGSTAFFID1411" src="G_STAFF_ID">
    <tr>
-    <td <rw:headers id="HFCHILDID78" src="HBCHILDID78"/> class="OraCellNumber"><rw:field id="FCHILDID78" src="CHILD_ID" nullValue="&nbsp;"> F_CHILD_ID </rw:field></td>
-    <td <rw:headers id="HFNAME78" src="HBNAME78"/> class="OraCellText"><rw:field id="FNAME78" src="NAME" nullValue="&nbsp;"> F_NAME </rw:field></td>
-    <td <rw:headers id="HFGENDER78" src="HBGENDER78"/> class="OraCellText"><rw:field id="FGENDER78" src="GENDER" nullValue="&nbsp;"> F_GENDER </rw:field></td>
-    <td <rw:headers id="HFADMISSIONDATE78" src="HBADMISSIONDATE78"/> class="OraCellText"><rw:field id="FADMISSIONDATE78" src="ADMISSION_DATE" nullValue="&nbsp;"> F_ADMISSION_DATE </rw:field></td>
-    <td <rw:headers id="HFBIRTHDATE78" src="HBBIRTHDATE78"/> class="OraCellText"><rw:field id="FBIRTHDATE78" src="BIRTH_DATE" nullValue="&nbsp;"> F_BIRTH_DATE </rw:field></td>
-    <td <rw:headers id="HFSTAFFID78" src="HBSTAFFID78"/> class="OraCellNumber"><rw:field id="FSTAFFID78" src="STAFF_ID" nullValue="&nbsp;"> F_STAFF_ID </rw:field></td>
-    <td <rw:headers id="HFADOPTERID78" src="HBADOPTERID78"/> class="OraCellNumber"><rw:field id="FADOPTERID78" src="ADOPTER_ID" nullValue="&nbsp;"> F_ADOPTER_ID </rw:field></td>
-    <td <rw:headers id="HFROOMID78" src="HBROOMID78"/> class="OraCellNumber"><rw:field id="FROOMID78" src="ROOM_ID" nullValue="&nbsp;"> F_ROOM_ID </rw:field></td>
+    <td <rw:headers id="HFSTAFFID141" src="HBSTAFFID141"/> class="OraCellNumber"><rw:field id="FSTAFFID141" src="STAFF_ID" nullValue="&nbsp;"> F_STAFF_ID </rw:field></td>
+    <td <rw:headers id="HFNAME141" src="HBNAME141"/> class="OraCellText"><rw:field id="FNAME141" src="NAME" nullValue="&nbsp;"> F_NAME </rw:field></td>
+    <td <rw:headers id="HFPOSITION141" src="HBPOSITION141"/> class="OraCellText"><rw:field id="FPOSITION141" src="POSITION" nullValue="&nbsp;"> F_POSITION </rw:field></td>
+    <td <rw:headers id="HFEMAIL141" src="HBEMAIL141"/> class="OraCellText"><rw:field id="FEMAIL141" src="EMAIL" nullValue="&nbsp;"> F_EMAIL </rw:field></td>
+    <td <rw:headers id="HFPHONENUMBER141" src="HBPHONENUMBER141"/> class="OraCellText"><rw:field id="FPHONENUMBER141" src="PHONE_NUMBER" nullValue="&nbsp;"> F_PHONE_NUMBER </rw:field></td>
+    <td <rw:headers id="HFHIREDATE141" src="HBHIREDATE141"/> class="OraCellText"><rw:field id="FHIREDATE141" src="HIRE_DATE" nullValue="&nbsp;"> F_HIRE_DATE </rw:field></td>
    </tr>
   </rw:foreach>
  </tbody>
  <!-- Report Level Summary -->
  <tr>
-  <td <rw:headers id="HFCountCHILDIDPerReport78" src="HBCHILDID78"/> class="OraTotalNumber">Count: <rw:field id="FCountCHILDIDPerReport78" src="CountCHILD_IDPerReport" nullValue="&nbsp;"> F_CountCHILD_IDPerReport </rw:field></td>
-  <th class="OraTotalText"> &nbsp; </th>
-  <th class="OraTotalText"> &nbsp; </th>
+  <td <rw:headers id="HFCountSTAFFIDPerReport141" src="HBSTAFFID141"/> class="OraTotalNumber">Count: <rw:field id="FCountSTAFFIDPerReport141" src="CountSTAFF_IDPerReport" nullValue="&nbsp;"> F_CountSTAFF_IDPerReport </rw:field></td>
   <th class="OraTotalText"> &nbsp; </th>
   <th class="OraTotalText"> &nbsp; </th>
   <th class="OraTotalText"> &nbsp; </th>
@@ -714,7 +619,7 @@ Id </th>
   <th class="OraTotalText"> &nbsp; </th>
  </tr>
 </table>
-</rw:dataArea> <!-- id="MGCHILDIDGRPFR78" -->
+</rw:dataArea> <!-- id="MGSTAFFIDGRPFR141" -->
 <!-- End of Data Area Generated by Reports Developer -->
 
       </DIV>
