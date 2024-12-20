@@ -36,8 +36,7 @@ The project includes the following database components:
 ## Application Components
 
 ### Forms
-Forms have been created for all tables to enable intuitive data entry and management.
-These forms allow users to:
+Forms have been created for all tables to enable intuitive data entry and management. These forms allow users to:
 - Add new records.
 - Update existing records.
 - Delete records when necessary.
